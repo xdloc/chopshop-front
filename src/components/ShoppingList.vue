@@ -7,8 +7,8 @@ export default {
     data () {
         return {
             items: [
-                { id: id++, name: 'this.newItem', created_at: '25.04.2022', updated_at: '25.04.2022', status: 1 },
-                { id: id++, name: 'this.newItem', created_at: '15.02.1525', updated_at: '23.04.2022', status: 1 }
+                { id: id++, name: 'this.newItem 1', created_at: '25.04.2022', updated_at: '25.04.2022', status: 1 },
+                { id: id++, name: 'this.newItem 2', created_at: '15.02.1525', updated_at: '23.04.2022', status: 1 }
             ]
         }
     },
@@ -24,6 +24,9 @@ export default {
         removeItem(item) {
             this.items = this.items.filter((t) => t !== item)
             this.fetchData()
+        },
+        editItem(item){
+
         },
         created() {
             // fetch on init
@@ -47,16 +50,24 @@ export default {
 <template>
     <form @submit.prevent="addItem">
         <input v-model="newItem">
-        <button type="button" class="btn btn-primary">Add Item</button>
-        <button type="button" class="btn btn-secondary">Refresh</button>
+        <button @click="addItem()" type="button" class="btn btn-primary">Add Item</button>
+        <button @click="editItem(item)" type="button" class="btn btn-secondary">Refresh</button>
     </form>
+
     <ul  class="list-group">
         <li  class="list-group-item" v-for="item in items" :key="item.id">
             <input class="form-check-input me-1" type="checkbox" value="" id="list_{{ item.id}}">
             <label class="form-check-label stretched-link" for="list_{{ item.id}}">{{ item.name }}
-                <button @click="removeItem(item)"  type="button" class="btn btn-dark">X</button>
             </label>
-            <button type="button" class="btn btn-primary">Primary</button>
+            <button @click="editItem(item)"  type="button" class="btn btn-dark">X</button>
+            <button @click="removeItem(item)"  type="button" class="btn btn-dark">X</button>
+            <a @click="editItem(item)" class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="#">
+                <svg class="bi" aria-hidden="true"><use xlink:href="#clipboard"></use></svg>
+                Edit
+            </a>            <a @click="removeItem(item)" class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="#">
+                <svg class="bi" aria-hidden="true"><use xlink:href="#eraser"></use></svg>
+                Remove
+            </a>
         </li>
     </ul>
 </template>
