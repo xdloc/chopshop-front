@@ -1,15 +1,12 @@
 <script>
+import axios from "axios";
+
 const API_URL = `https://siberia.vps.webdock.cloud/?method=list%2Flist`
 let id = 0;
 export default {
-    data() {
+    data () {
         return {
-            newItem: '',
-            items: [
-                { id: id++, name: '1', created_at: '', updated_at: '', status: 1 },
-                { id: id++, name: '2', created_at: '', updated_at: '', status: 0 },
-                { id: id++, name: '3', created_at: '', updated_at: '', status: 1 }
-            ]
+            items: null
         }
     },
     watch: {
@@ -29,8 +26,16 @@ export default {
             // fetch on init
             this.fetchData()
         },
+        mounted () {
+            axios
+                .get('https://siberia.vps.webdock.cloud/?method=list%2Flist')
+                .then(response => (this.items = response))
+        },
         async fetchData() {
-            this.items = await (await fetch(API_URL)).json()
+            //this.items = await (await fetch(API_URL)).json()
+            axios
+                .get('https://siberia.vps.webdock.cloud/?method=list%2Flist')
+                .then(response => (this.items = response))
         }
     }
 }
