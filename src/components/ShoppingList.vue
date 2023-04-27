@@ -108,7 +108,7 @@ export default {
 .list-group-item{
     background: none;
     background-color: grey;
-    backdrop-filter: blur(50);˚
+    backdrop-filter: blur(50);
 }
 label{
     color: whitesmoke;
