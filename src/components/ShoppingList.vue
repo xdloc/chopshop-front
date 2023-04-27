@@ -100,6 +100,6 @@ export default {
     position: absolute;
 }
 .btn{
-    border-radius: 2;
+    border-radius: 2px;
 }
 </style>
