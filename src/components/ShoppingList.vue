@@ -20,17 +20,17 @@ export default {
             this.items.push({ id: id++, name: this.newItem, created_at: '', updated_at: '', status: 1 })
             this.newItem = ''
             axios
-                .get(API_URL+'list%2Fadd')
+                //.get(API_URL+'list%2Fadd')
                 .then(response => (this.fetchData()))
         },
         removeItem(item) {
             axios
-                .get(API_URL+'list%2Fremove')
+                //.get(API_URL+'list%2Fremove')
                 .then(response => (this.fetchData()))
         },
         editItem(item){
             axios
-                .get(API_URL+'list%2Fedit')
+                //.get(API_URL+'list%2Fedit')
                 .then(response => (this.fetchData()))
         },
         created() {
