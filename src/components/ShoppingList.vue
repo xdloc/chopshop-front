@@ -44,12 +44,15 @@ export default {
 <template>
     <form @submit.prevent="addItem">
         <input v-model="newItem">
-        <button>Add Item</button>
+        <button type="button" class="btn btn-primary">Add Item</button>
     </form>
-    <ul>
-        <li v-for="item in items" :key="item.id">
-            {{ item.name }}
-            <button @click="removeItem(item)">X</button>
+    <ul  class="list-group">
+        <li  class="list-group-item" v-for="item in items" :key="item.id">
+            <input class="form-check-input me-1" type="checkbox" value="" id="list_{{ item.id}}">
+            <label class="form-check-label stretched-link" for="list_{{ item.id}}">{{ item.name }}
+                <button @click="removeItem(item)"  type="button" class="btn btn-dark">X</button>
+            </label>
+            <button type="button" class="btn btn-primary">Primary</button>
         </li>
     </ul>
 </template>

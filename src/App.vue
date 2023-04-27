@@ -6,9 +6,10 @@ import HelloWorld from './components/HelloWorld.vue'
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <div class="wrapper">
-      <HelloWorld msg="You did it! Almost... " />
+      <HelloWorld msg="ChopShop" />
 
       <nav>
         <RouterLink to="/">Home Sweet Home</RouterLink>
