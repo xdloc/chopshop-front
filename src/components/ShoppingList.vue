@@ -59,15 +59,9 @@ export default {
             <input class="form-check-input me-1" type="checkbox" value="" id="list_{{ item.id}}">
             <label class="form-check-label stretched-link" for="list_{{ item.id}}">{{ item.name }}
             </label>
-            <button @click="editItem(item)"  type="button" class="btn btn-dark">X</button>
+            <button @click="editItem(item)"  type="button" class="btn btn-dark">CHANGE</button>
             <button @click="removeItem(item)"  type="button" class="btn btn-dark">X</button>
-            <a @click="editItem(item)" class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="#">
-                <svg class="bi" aria-hidden="true"><use xlink:href="#clipboard"></use></svg>
-                Edit
-            </a>            <a @click="removeItem(item)" class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="#">
-                <svg class="bi" aria-hidden="true"><use xlink:href="#eraser"></use></svg>
-                Remove
-            </a>
+
         </li>
     </ul>
 </template>
@@ -104,5 +98,8 @@ export default {
       animations can be calculated correctly. */
 .fade-leave-active {
     position: absolute;
+}
+.btn{
+    border-radius: 2;
 }
 </style>
