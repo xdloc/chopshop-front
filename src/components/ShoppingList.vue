@@ -105,4 +105,12 @@ export default {
 .list-group .label{
     width: 62%;
 }
+.list-group-item{
+    background: none;
+    background-color: grey;
+    backdrop-filter: blur(50);˚
+}
+label{
+    color: whitesmoke;
+}
 </style>

@@ -33,11 +33,3 @@ a,
     padding: 0 2rem;
   }
 }
-
-.list-group-item{
-  background: none;
-  backdrop-filter: blur(50);
-}
-.label{
-  color: whitesmoke;
-}
