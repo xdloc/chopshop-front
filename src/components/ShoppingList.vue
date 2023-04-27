@@ -17,7 +17,7 @@ export default {
     },
     methods: {
         addItem() {
-            if(this.newItem !== ''){
+            if(this.newItem.length > 0){
                 this.items.push({ id: id++, name: this.newItem, created_at: '', updated_at: '', status: 1 })
                 this.newItem = ''
                 axios
@@ -50,9 +50,8 @@ export default {
                 .then(response => (this.items = response))
         },
         async fetchData() {
-            //this.items = await (await fetch(API_URL)).json()
             axios
-                .get(API_URL+'list%2Flist')
+                .get(API_URL + 'list%2Flist')
                 .then(response => (this.items = response))
         }
     }
