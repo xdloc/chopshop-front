@@ -1,8 +1,8 @@
 <script>
 import axios from "axios";
 
-const API_URL = `https://siberia.vps.webdock.cloud/?method=list%2Flist`
-let id = 0;
+const API_URL = `https://siberia.vps.webdock.cloud/?method=`
+let id = 1000;
 export default {
     data () {
         return {
@@ -19,14 +19,19 @@ export default {
         addItem() {
             this.items.push({ id: id++, name: this.newItem, created_at: '', updated_at: '', status: 1 })
             this.newItem = ''
-            this.fetchData()
+            axios
+                .get(API_URL+'list%2Fadd')
+                .then(response => (this.fetchData()))
         },
         removeItem(item) {
-            this.items = this.items.filter((t) => t !== item)
-            this.fetchData()
+            axios
+                .get(API_URL+'list%2Fremove')
+                .then(response => (this.fetchData()))
         },
         editItem(item){
-
+            axios
+                .get(API_URL+'list%2Fedit')
+                .then(response => (this.fetchData()))
         },
         created() {
             // fetch on init
@@ -34,13 +39,13 @@ export default {
         },
         mounted () {
             axios
-                .get(API_URL)
+                .get(API_URL+'list%2Flist')
                 .then(response => (this.items = response))
         },
         async fetchData() {
             //this.items = await (await fetch(API_URL)).json()
             axios
-                .get(API_URL)
+                .get(API_URL+'list%2Flist')
                 .then(response => (this.items = response))
         }
     }
@@ -56,8 +61,8 @@ export default {
 
     <ul  class="list-group">
         <li  class="list-group-item" v-for="item in items" :key="item.id">
-            <input class="form-check-input me-1" type="checkbox" value="" id="list_{{ item.id}}">
-            <label class="form-check-label stretched-link" for="list_{{ item.id}}">{{ item.name }}
+            <input class="form-check-input me-1" type="checkbox" value="" id="{{ item.id}}">
+            <label class="form-check-label stretched-link" for="{{ item.id}}">{{ item.name }}
             </label>
             <button @click="editItem(item)"  type="button" class="btn btn-dark">CHANGE</button>
             <button @click="removeItem(item)"  type="button" class="btn btn-dark">X</button>
@@ -104,11 +109,15 @@ export default {
 }
 .list-group-item{
     background: none;
-    background-color: grey !important;
+    background-color: rgb(119, 88, 122) !important;
     backdrop-filter: blur(50);
 }
 label{
     color: whitesmoke;
     width: 62%;
+}
+.form-check-input[type=checkbox] {
+    border-radius: .25em;
+    margin-top: 11px;
 }
 </style>
