@@ -102,4 +102,7 @@ export default {
 .btn{
     border-radius: 2px;
 }
+.list-group .label{
+    width: 62%;
+}
 </style>
