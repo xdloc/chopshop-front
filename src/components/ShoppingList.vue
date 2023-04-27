@@ -6,7 +6,10 @@ let id = 0;
 export default {
     data () {
         return {
-            items: []
+            items: [
+                { id: id++, name: 'this.newItem', created_at: '25.04.2022', updated_at: '25.04.2022', status: 1 },
+                { id: id++, name: 'this.newItem', created_at: '15.02.1525', updated_at: '23.04.2022', status: 1 }
+            ]
         }
     },
     watch: {
@@ -28,13 +31,13 @@ export default {
         },
         mounted () {
             axios
-                .get('https://siberia.vps.webdock.cloud/?method=list%2Flist')
+                .get(API_URL)
                 .then(response => (this.items = response))
         },
         async fetchData() {
             //this.items = await (await fetch(API_URL)).json()
             axios
-                .get('https://siberia.vps.webdock.cloud/?method=list%2Flist')
+                .get(API_URL)
                 .then(response => (this.items = response))
         }
     }
@@ -45,6 +48,7 @@ export default {
     <form @submit.prevent="addItem">
         <input v-model="newItem">
         <button type="button" class="btn btn-primary">Add Item</button>
+        <button type="button" class="btn btn-secondary">Refresh</button>
     </form>
     <ul  class="list-group">
         <li  class="list-group-item" v-for="item in items" :key="item.id">
