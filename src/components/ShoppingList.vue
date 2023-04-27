@@ -54,7 +54,7 @@ export default {
 
 <template>
     <form @submit.prevent="addItem">
-        <input v-model="newItem">
+        <input v-model="newItem" class="form-control">
         <button @click="addItem()" type="button" class="btn btn-primary">Add Item</button>
         <button @click="editItem(item)" type="button" class="btn btn-secondary">Refresh</button>
     </form>
@@ -106,6 +106,9 @@ export default {
 }
 .btn{
     border-radius: 18px;
+}
+.list-group{
+    margin-top: .25em;
 }
 .list-group-item{
     background: none;
