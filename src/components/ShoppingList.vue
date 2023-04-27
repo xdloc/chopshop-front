@@ -17,24 +17,31 @@ export default {
     },
     methods: {
         addItem() {
-            this.items.push({ id: id++, name: this.newItem, created_at: '', updated_at: '', status: 1 })
-            this.newItem = ''
-            axios
-                //.get(API_URL+'list%2Fadd')
-                .then(response => (this.fetchData()))
+            if(this.newItem !== ''){
+                this.items.push({ id: id++, name: this.newItem, created_at: '', updated_at: '', status: 1 })
+                this.newItem = ''
+                axios
+                    // todo ListController Add
+                    .get(API_URL+'list%2Fadd')
+                    .then(response => (this.fetchData()))
+            }
         },
         removeItem(item) {
             axios
-                //.get(API_URL+'list%2Fremove')
+                // todo ListController Remove
+                .get(API_URL+'list%2Fremove')
                 .then(response => (this.fetchData()))
         },
         editItem(item){
             axios
-                //.get(API_URL+'list%2Fedit')
+                // todo ListController Edit
+                .get(API_URL+'list%2Fedit')
                 .then(response => (this.fetchData()))
         },
+        refresh(){
+            this.fetchData()
+        },
         created() {
-            // fetch on init
             this.fetchData()
         },
         mounted () {
@@ -54,9 +61,9 @@ export default {
 
 <template>
     <form @submit.prevent="addItem">
-        <input v-model="newItem" class="form-control">
+        <input v-model="newItem" class="form-control" placeholder="Another name in the list">
         <button @click="addItem()" type="button" class="btn btn-primary">Add Item</button>
-        <button @click="editItem(item)" type="button" class="btn btn-secondary">Refresh</button>
+        <button @click="refresh(item)" type="button" class="btn btn-secondary">Refresh</button>
     </form>
 
     <ul  class="list-group">
@@ -106,6 +113,7 @@ export default {
 }
 .btn{
     border-radius: 18px;
+    margin-right: 0.25em !important;
 }
 .list-group{
     margin-top: .25em;
