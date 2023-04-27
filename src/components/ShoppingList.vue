@@ -100,17 +100,15 @@ export default {
     position: absolute;
 }
 .btn{
-    border-radius: 2px;
-}
-.list-group .label{
-    width: 62%;
+    border-radius: 18px;
 }
 .list-group-item{
     background: none;
-    background-color: grey;
+    background-color: grey !important;
     backdrop-filter: blur(50);
 }
 label{
     color: whitesmoke;
+    width: 62%;
 }
 </style>
