@@ -84,9 +84,15 @@ export default {
 <template>
     <section>
         <div>
-            <form @submit.prevent="addItem" class="form">
+            <form @submit.prevent="addItem" class="row row-cols-lg-auto g-3 align-items-center">
+
+            <div class="col-12">
                 <input v-model="newItem" class="form-control" placeholder="Another name in the list">
+            </div>
+
+            <div class="col-12">
                 <button @click="addItem()" type="button" class="btn btn-outline-primary btn-add"><i class="fa-solid fa-plus"></i>Add Item</button>
+            </div>
             </form>
         </div>
     </section>
