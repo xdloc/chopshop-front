@@ -42,9 +42,11 @@ export default {
                 .get(API_URL + 'list%2Fremove', config)
                 .then(response => {
                     //this.fetchData()
-                    if (response.data) {
+                    if (response === true) {
                         console.log(response);
                         this.items = this.items.filter((t) => t !== item)
+                    } else{
+                        console.log('Item not deleted');
                     }
                 })
                 .catch(error => {
@@ -120,10 +122,10 @@ export default {
                 <div class="container text-center">
                     <div class="row">
                         <div class="col col-lg-2">
-                            <input class="form-check-input me-1" type="checkbox" value="" @click="markItem(item)" id="{{ item.id }}">
+                            <input class="form-check-input me-1" type="checkbox" value="" @click="markItem(item)" :id="'shop-list-row-'+item.id+''">
                         </div>
                         <div class="col col-lg-auto col-md-auto">
-                            <label class="form-check-label stretched-link" for="{{ item.id }}">{{ item.name }}
+                            <label class="form-check-label stretched-link" :for="'shop-list-row-'+item.id+''">{{ item.name }}
                             </label>
                         </div>
                         <div class="col col-lg-2">
