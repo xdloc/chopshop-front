@@ -25,9 +25,9 @@ export default {
     data() {
         return {
             items: [
-                /*  { id: id++, name: 'this.newItem 1', created_at: '25.04.2022', updated_at: '25.04.2022', status: 1 },
-                  { id: id++, name: 'this.newItem 2', created_at: '15.02.1525', updated_at: '23.04.2022', status: 1 }
-             */]
+                /*{id: id++, name: 'this.newItem 1', created_at: '25.04.2022', updated_at: '25.04.2022', status: 1},
+                {id: id++, name: 'this.newItem 2', created_at: '15.02.1525', updated_at: '23.04.2022', status: 1}*/
+            ]
         }
     },
     watch: {},
@@ -40,6 +40,10 @@ export default {
                     // todo ListController Add
                     .get(API_URL + 'list%2Fadd', config)
                     .then(response => (this.fetchData()))
+                    .catch(error => {
+                        console.log(error)
+                        this.failure = true;
+                    })
             }
         },
         removeItem(item) {
@@ -47,12 +51,20 @@ export default {
                 // todo ListController Remove
                 .get(API_URL + 'list%2Fremove', config)
                 .then(response => (this.fetchData()))
+                .catch(error => {
+                    console.log(error)
+                    this.failure = true;
+                })
         },
         editItem(item) {
             axios
                 // todo ListController Edit
                 .get(API_URL + 'list%2Fedit', config)
                 .then(response => (this.fetchData()))
+                .catch(error => {
+                    console.log(error)
+                    this.failure = true;
+                })
         },
         refresh() {
             this.fetchData()
@@ -61,14 +73,16 @@ export default {
             this.fetchData()
         },
         mounted() {
-            axios
-                .get(API_URL + 'list%2Flist', config)
-                .then(response => (this.items = response))
+            this.fetchData()
         },
         async fetchData() {
             axios
                 .get(API_URL + 'list%2Flist', config)
                 .then(response => (this.items = response))
+                .catch(error => {
+                    console.log(error)
+                    this.failure = true;
+                })
         }
     }
 }
@@ -82,16 +96,29 @@ export default {
         <button @click="refresh(item)" type="button" class="btn btn-secondary btn-refresh">Refresh</button>
     </form>
 
-    <ul class="list-group">
-        <li class="list-group-item" v-for="item in items" :key="item.id">
-            <input class="form-check-input me-1" type="checkbox" value="" id="{{ item.id}}">
-            <label class="form-check-label stretched-link" for="{{ item.id}}">{{ item.name }}
-            </label>
-            <button @click="editItem(item)" type="button" class="btn btn-dark btn-change">CHANGE</button>
-            <button @click="removeItem(item)" type="button" class="btn btn-dark btn-remove">X</button>
+    <section v-if="failure">
+        <div class="alert alert-danger" role="alert">
+            A simple danger alert—check it out!
+        </div>
+    </section>
 
-        </li>
-    </ul>
+    <section v-else>
+        <div v-if="loading" class="alert alert-dark" role="alert">
+            Loading...
+        </div>
+        <ul class="list-group" v-else>
+            <li class="list-group-item" v-for="item in items" :key="item.id">
+                <input class="form-check-input me-1" type="checkbox" value="" id=:key>
+                <label class="form-check-label stretched-link" for=:key>{{ item.name }}
+                </label>
+                <button @click="editItem(item)" type="button" class="btn btn-dark btn-change">CHANGE</button>
+                <button @click="removeItem(item)" type="button" class="btn btn-dark btn-remove">X</button>
+
+            </li>
+        </ul>
+
+    </section>
+
 </template>
 
 <style>
