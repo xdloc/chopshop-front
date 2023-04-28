@@ -140,6 +140,9 @@ export default {
     position: relative;
     padding: 0;
 }
+section{
+    margin-top: 0.25em;
+}
 .btn {
     border-radius: 18px;
     padding: 6px;
