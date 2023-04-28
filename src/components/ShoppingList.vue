@@ -13,7 +13,7 @@ let id = 1000;
 let config = {
     headers: {
         'Content-Type': 'application/json',
-        'Origin': BACKEND
+        'Origin': 'https://siberia.vps.webdock.cloud/',
         //'Access-Control-Allow-Origin': BACKEND,//'https://siberia.vps.webdock.cloud/',
         //'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Credentials,Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Vary',
         //'Access-Control-Allow-Methods': 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
@@ -22,15 +22,12 @@ let config = {
 }
 
 export default {
-    data() {
-        return {
-            items: [
-                /*{id: id++, name: 'this.newItem 1', created_at: '25.04.2022', updated_at: '25.04.2022', status: 1},
-                {id: id++, name: 'this.newItem 2', created_at: '15.02.1525', updated_at: '23.04.2022', status: 1}*/
-            ]
-        }
+    data: () => ({
+        items: []
+    }),
+    watch: {
+        // todo update items on edit without save button
     },
-    watch: {},
     methods: {
         addItem() {
             if (this.newItem.length > 0) {
@@ -115,7 +112,7 @@ export default {
                 <label class="form-check-label stretched-link" for=:key>{{ item.name }}
                 </label>
 
-                <button @click="editItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i></button>
+                <button @click="editItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>CHANGE</button>
                 <button @click="removeItem(item)" type="button" class="btn-close" aria-label="Close"></button>
 
             </li>
@@ -179,6 +176,7 @@ export default {
     background-color: #00bd7e !important;
 }
 .btn-outline-primary{
+    border-color: #00bd7e !important;
     --bs-btn-color: #00bd7e !important;
     --bs-btn-border-color: --teal;
     --bs-btn-hover-color: #fff;
@@ -218,7 +216,7 @@ label {
     margin-bottom: 0.5em;
 }
 .form-check-input{
-    width: 2em;
-    height: 2em;
+    width: 2em !important;
+    height: 2em !important;
 }
 </style>
