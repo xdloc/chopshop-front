@@ -5,7 +5,6 @@ let BACKEND = 'https://siberia.vps.webdock.cloud/';
 axios.defaults.baseURL = BACKEND;
 axios.defaults.headers.post['Access-Control-Allow-Origin'] = BACKEND;
 axios.defaults.headers.post['Content-Type'] = 'application/json';
-axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 const API_URL = BACKEND + `?method=`
 let id = 1000;
