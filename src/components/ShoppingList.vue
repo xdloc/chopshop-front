@@ -15,7 +15,7 @@ export default {
         items: []
     }),
     watch: {
-        // todo update items on edit without save button
+
     },
     methods: {
         addItem() {
