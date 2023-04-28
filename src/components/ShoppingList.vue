@@ -52,7 +52,7 @@ export default {
         markItem(item) {
             axios
                 // todo ListController Mark
-                .get(API_URL + 'list&method=mark&id=' + item.id + '&value='.item.status, config)
+                .get(API_URL + 'list&method=mark&id=' + item.id + '&value=' + item.status, config)
                 .then(response => {
                     //this.fetchData()
                 })
