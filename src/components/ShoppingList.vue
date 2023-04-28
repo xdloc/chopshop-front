@@ -21,14 +21,15 @@ export default {
     methods: {
         addItem() {
             if (this.newItem.length > 0) {
-                this.items.push({id: id++, name: this.newItem, created_at: '', updated_at: '', status: 0})
-                this.newItem = ''
+                //this.items.push({id: id++, name: this.newItem, created_at: '', updated_at: '', status: 0})
                 axios
                     // todo ListController Add
-                    .get(API_URL + 'list%2Fadd', config)
+                    .get(API_URL + 'list%2Fadd?name=' + this.newItem, config)
                     .then(response => {
+                        if (response) {
+                            this.newItem = ''
+                        }
                         this.fetchData()
-
                     })
                     .catch(error => {
                         console.log(error)
@@ -45,7 +46,7 @@ export default {
                     if (response === true) {
                         console.log(response);
                         this.items = this.items.filter((t) => t !== item)
-                    } else{
+                    } else {
                         console.log('Item not deleted');
                     }
                 })
@@ -79,6 +80,7 @@ export default {
             axios
                 .get(API_URL + 'list%2Flist', config)
                 .then(response => {
+                    console.log(response);
                     this.items = response.data
                     return response.data;
                 })
@@ -231,6 +233,7 @@ export default {
 
 label {
     color: whitesmoke;
+    padding-top: 13px;
 }
 
 .form-check-input[type=checkbox] {
