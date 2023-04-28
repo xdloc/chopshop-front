@@ -80,6 +80,9 @@ export default {
         mounted() {
             this.fetchData()
         },
+        beforeMount(){
+            this.fetchData()
+        },
         async fetchData() {
             axios
                 .get(API_URL + 'list&method=list', config)
@@ -137,12 +140,10 @@ export default {
                             </div>
                         </div>
                         <div class="col col-lg-2 align-content-lg-end">
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                 <!--<button @click="editItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>CHANGE</button>-->
                                 <button @click="removeItem(item)" type="button" class="btn btn-dark btn-change"><i
                                         class="fa-solid fa-pen-to-square"></i>REMOVE
                                 </button>
-                            </div>
 
                         </div>
                     </div>
