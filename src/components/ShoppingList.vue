@@ -78,7 +78,7 @@ export default {
                 .then(response => {
                     console.log(this.items)
                     console.log(response)
-                    this.items = response
+                    this.items = response.data
                 })
                 .catch(error => {
                     console.log(error)
@@ -113,8 +113,8 @@ export default {
         </div>
         <ul class="list-group" v-else>
             <li class="list-group-item" v-for="item in items" :key="item.id">
-                <input class="form-check-input me-1" type="checkbox" value="" id=:key>
-                <label class="form-check-label stretched-link" for=:key>{{ item.name }}
+                <input class="form-check-input me-1" type="checkbox" value="" id="{{ item.id }}">
+                <label class="form-check-label stretched-link" for="{{ item.id }}">{{ item.name }}
                 </label>
 
                 <!--<button @click="editItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>CHANGE</button>-->
@@ -212,7 +212,6 @@ export default {
 
 label {
     color: whitesmoke;
-    width: 62%;
 }
 
 .form-check-input[type=checkbox] {
