@@ -127,14 +127,16 @@ export default {
                         <div class="col col-lg-2">
                             <input class="form-check-input me-1" type="checkbox" value="" @click="markItem(item)" :id="'shop-list-row-'+item.id+''">
                         </div>
-                        <div class="col col-lg-auto col-md-auto">
+                        <div class="col col-lg-auto col-md-auto col-sm-auto col-auto ">
                             <label class="form-check-label stretched-link" :for="'shop-list-row-'+item.id+''">{{ item.name }}
                             </label>
                         </div>
-                        <div class="col col-lg-2">
-                            <!--<button @click="editItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>CHANGE</button>-->
-                            <button @click="removeItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>REMOVE
-                            </button>
+                        <div class="col col-lg-2 align-content-lg-end">
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <!--<button @click="editItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>CHANGE</button>-->
+                                <button @click="removeItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>REMOVE</button>
+                            </div>
+
                         </div>
                     </div>
                 </div>
