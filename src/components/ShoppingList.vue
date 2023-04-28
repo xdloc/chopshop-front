@@ -22,7 +22,7 @@ export default {
             if (this.newItem.length > 0) {
                 //this.items.push({id: id++, name: this.newItem, created_at: '', updated_at: '', status: 0})
                 axios
-                    // todo ListController Add
+                    // ListController ADD
                     .get(API_URL + 'list&method=add&name=' + this.newItem, config)
                     .then(response => {
                         if (response) {
@@ -38,7 +38,7 @@ export default {
         },
         removeItem(item) {
             axios
-                // todo ListController Remove
+                // ListController REMOVE
                 .get(API_URL + 'list&method=remove&id=' + item.id, config)
                 .then(response => {
                     this.fetchData()
@@ -53,12 +53,7 @@ export default {
                 // todo ListController Mark
                 .get(API_URL + 'list&method=mark&id=' + item.id + '&value=' + item.status, config)
                 .then(response => {
-                    if(item.status)
-                        item.checked = 'checked'
-                    else{
-                        item.checked = ''
-                    }
-                    //this.fetchData()
+
                 })
                 .catch(error => {
                     console.log(error)
@@ -78,6 +73,9 @@ export default {
             this.fetchData()
         },
         beforeMount(){
+            this.fetchData()
+        },
+        ready(){
             this.fetchData()
         },
         async fetchData() {
@@ -111,9 +109,9 @@ export default {
         </div>
     </section>
 
-    <section v-if="failure">
+    <section v-if="failure" >
         <div>
-            <b-alert show dismissible>
+            <b-alert show dismissible transition="expand">
                 <i class="fa-solid fa-bomb"></i> FAILED <b>&rArr;</b>
             </b-alert>
         </div>
