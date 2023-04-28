@@ -128,7 +128,7 @@ export default {
                 <div class="container text-center">
                     <div class="row">
                         <div class="col col-lg-2">
-                            <input class="form-check-input me-1" type="checkbox" v-model="item.status"  @click="markItem(item)" :id="'shop-list-row-'+item.id+''">
+                            <input class="form-check-input me-1" type="checkbox" v-model="item.checked"  @click="markItem(item)" :id="'shop-list-row-'+item.id+''">
                         </div>
                         <div class="col col-lg-auto col-md-auto col-sm-auto col-auto ">
                             <div class="label">
