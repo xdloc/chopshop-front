@@ -13,7 +13,7 @@ let config = {
 
 export default {
     data: () => ({
-        items: null
+        items: []
     }),
     watch: {
         // todo update items on edit without save button
@@ -21,7 +21,7 @@ export default {
     methods: {
         addItem() {
             if (this.newItem.length > 0) {
-                this.items.push({id: id++, name: this.newItem, created_at: '', updated_at: '', status: 1})
+                this.items.push({id: id++, name: this.newItem, created_at: '', updated_at: '', status: 0})
                 this.newItem = ''
                 axios
                     // todo ListController Add
@@ -37,7 +37,10 @@ export default {
             axios
                 // todo ListController Remove
                 .get(API_URL + 'list%2Fremove', config)
-                .then(response => (this.fetchData()))
+                .then(response => {
+                    //this.fetchData()
+                    this.items = this.items.filter((t) => t !== item)
+                })
                 .catch(error => {
                     console.log(error)
                     this.failure = true;
@@ -45,7 +48,7 @@ export default {
         },
         markItem(item) {
             axios
-                // todo ListController Edit
+                // todo ListController Mark
                 .get(API_URL + 'list%2Fedit', config)
                 .then(response => {
 
@@ -68,8 +71,6 @@ export default {
             axios
                 .get(API_URL + 'list%2Flist', config)
                 .then(response => {
-                    console.log(this.items)
-                    console.log(response)
                     this.items = response.data
                     return response.data;
                 })
