@@ -6,62 +6,61 @@ let id = 1000;
 let config = {
     headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'https://siberia.vps.webdock.cloud/',
+        'Access-Control-Allow-Origin': '*',//'https://siberia.vps.webdock.cloud/',
         'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
         'Access-Control-Allow-Methods': '*',
         'Access-Control-Allow-Credentials': 'true',
+        'Vary': 'Accept-Encoding'
     }
 }
 
 export default {
-    data () {
+    data() {
         return {
             items: [
-              /*  { id: id++, name: 'this.newItem 1', created_at: '25.04.2022', updated_at: '25.04.2022', status: 1 },
-                { id: id++, name: 'this.newItem 2', created_at: '15.02.1525', updated_at: '23.04.2022', status: 1 }
-           */ ]
+                /*  { id: id++, name: 'this.newItem 1', created_at: '25.04.2022', updated_at: '25.04.2022', status: 1 },
+                  { id: id++, name: 'this.newItem 2', created_at: '15.02.1525', updated_at: '23.04.2022', status: 1 }
+             */]
         }
     },
-    watch: {
-
-    },
+    watch: {},
     methods: {
         addItem() {
-            if(this.newItem.length > 0){
-                this.items.push({ id: id++, name: this.newItem, created_at: '', updated_at: '', status: 1 })
+            if (this.newItem.length > 0) {
+                this.items.push({id: id++, name: this.newItem, created_at: '', updated_at: '', status: 1})
                 this.newItem = ''
                 axios
                     // todo ListController Add
-                    .get(API_URL+'list%2Fadd',config)
+                    .get(API_URL + 'list%2Fadd', config)
                     .then(response => (this.fetchData()))
             }
         },
         removeItem(item) {
             axios
                 // todo ListController Remove
-                .get(API_URL+'list%2Fremove',config)
+                .get(API_URL + 'list%2Fremove', config)
                 .then(response => (this.fetchData()))
         },
-        editItem(item){
+        editItem(item) {
             axios
                 // todo ListController Edit
-                .get(API_URL+'list%2Fedit',config)
+                .get(API_URL + 'list%2Fedit', config)
                 .then(response => (this.fetchData()))
         },
-        refresh(){
+        refresh() {
             this.fetchData()
         },
         created() {
             this.fetchData()
         },
-        mounted () {
+        mounted() {
             axios
-                .get(API_URL+'list%2Flist',config)
+                .get(API_URL + 'list%2Flist', config)
                 .then(response => (this.items = response))
         },
         async fetchData() {
             axios
-                .get(API_URL + 'list%2Flist',config)
+                .get(API_URL + 'list%2Flist', config)
                 .then(response => (this.items = response))
         }
     }
@@ -76,13 +75,13 @@ export default {
         <button @click="refresh(item)" type="button" class="btn btn-secondary btn-refresh">Refresh</button>
     </form>
 
-    <ul  class="list-group">
-        <li  class="list-group-item" v-for="item in items" :key="item.id">
+    <ul class="list-group">
+        <li class="list-group-item" v-for="item in items" :key="item.id">
             <input class="form-check-input me-1" type="checkbox" value="" id="{{ item.id}}">
             <label class="form-check-label stretched-link" for="{{ item.id}}">{{ item.name }}
             </label>
-            <button @click="editItem(item)"  type="button" class="btn btn-dark btn-change">CHANGE</button>
-            <button @click="removeItem(item)"  type="button" class="btn btn-dark btn-remove">X</button>
+            <button @click="editItem(item)" type="button" class="btn btn-dark btn-change">CHANGE</button>
+            <button @click="removeItem(item)" type="button" class="btn btn-dark btn-remove">X</button>
 
         </li>
     </ul>
@@ -121,39 +120,48 @@ export default {
 .fade-leave-active {
     position: absolute;
 }
-.btn{
+
+.btn {
     border-radius: 18px;
     padding: 6px;
 }
-.btn-remove,.btn-change{
+
+.btn-remove, .btn-change {
     margin-right: 0.15em !important;
     margin-top: 0.15em !important;
 }
-.btn-add,.btn-refresh{
+
+.btn-add, .btn-refresh {
     margin-right: 0.65em !important;
     margin-bottom: 0.65em !important;
     margin-top: 0.65em !important;
 }
-.btn-add{
+
+.btn-add {
     background-color: #00bd7e !important;
 }
-.list-group{
+
+.list-group {
     margin-top: .25em;
 }
-.list-group-item{
+
+.list-group-item {
     background: none;
     background-color: rgb(119, 88, 122) !important;
     backdrop-filter: blur(50);
 }
-label{
+
+label {
     color: whitesmoke;
     width: 62%;
 }
+
 .form-check-input[type=checkbox] {
     border-radius: .25em;
     margin-top: 11px;
 }
-.form-control{
+
+.form-control {
     margin-bottom: 0.5em;
 }
 </style>
