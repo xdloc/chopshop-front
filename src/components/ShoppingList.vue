@@ -93,28 +93,29 @@ export default {
         <form @submit.prevent="addItem">
             <input v-model="newItem" class="form-control" placeholder="Another name in the list">
             <div class="btn-group" role="group" aria-label="Basic outlined example">
-                <button @click="addItem()" type="button" class="btn btn-outline-primary">Add Item</button>
-                <button @click="refresh(item)" type="button" class="btn btn-outline-secondary">Refresh</button>
+                <button @click="addItem()" type="button" class="btn btn-outline-primary"><i class="fa-solid fa-plus"></i>Add Item</button>
+                <button @click="refresh(item)" type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-arrow-rotate"></i>Refresh</button>
             </div>
         </form>
     </section>
 
     <section v-if="failure">
         <div class="alert alert-danger" role="alert">
-            A simple danger alert—check it out!
+            <i class="fa-solid fa-bomb"></i> FAILED
         </div>
     </section>
 
     <section v-else>
         <div v-if="loading" class="alert alert-dark" role="alert">
-            Loading...
+            <i class="fa-solid fa-arrow-rotate"></i> Loading...
         </div>
         <ul class="list-group" v-else>
             <li class="list-group-item" v-for="item in items" :key="item.id">
                 <input class="form-check-input me-1" type="checkbox" value="" id=:key>
                 <label class="form-check-label stretched-link" for=:key>{{ item.name }}
                 </label>
-                <button @click="editItem(item)" type="button" class="btn btn-dark btn-change">CHANGE</button>
+
+                <button @click="editItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i></button>
                 <button @click="removeItem(item)" type="button" class="btn-close" aria-label="Close"></button>
 
             </li>
