@@ -23,7 +23,7 @@ let config = {
 
 export default {
     data: () => ({
-        items: []
+        items: null
     }),
     watch: {
         // todo update items on edit without save button
@@ -113,7 +113,7 @@ export default {
                 </label>
 
                 <button @click="editItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>CHANGE</button>
-                <button @click="removeItem(item)" type="button" class="btn-close" aria-label="Close"></button>
+                <button @click="removeItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>REMOVE</button>
 
             </li>
         </ul>
@@ -162,8 +162,8 @@ export default {
 }
 
 .btn-remove, .btn-change {
-    margin-right: 0.15em !important;
-    margin-top: 0.15em !important;
+    margin-right: 0.25em !important;
+    margin-top: 9px !important;
 }
 
 .btn-add, .btn-refresh {
@@ -210,6 +210,7 @@ label {
 .form-check-input[type=checkbox] {
     border-radius: .25em;
     margin-top: 11px;
+    margin-bottom: 11px;
 }
 
 .form-control {
