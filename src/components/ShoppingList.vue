@@ -40,7 +40,7 @@ export default {
         removeItem(item) {
             axios
                 // todo ListController Remove
-                .get(API_URL + 'list%2Fremove', config)
+                .get(API_URL + 'list%2Fremove?id='+item.id, config)
                 .then(response => {
                     //this.fetchData()
                     console.log(response);
