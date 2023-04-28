@@ -7,6 +7,7 @@ let config = {
     headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers' : 'X-Requested-With, Content-Type, X-Auth-Token, Origin, Authorization'
     }
 }
 
@@ -14,9 +15,9 @@ export default {
     data () {
         return {
             items: [
-                { id: id++, name: 'this.newItem 1', created_at: '25.04.2022', updated_at: '25.04.2022', status: 1 },
+              /*  { id: id++, name: 'this.newItem 1', created_at: '25.04.2022', updated_at: '25.04.2022', status: 1 },
                 { id: id++, name: 'this.newItem 2', created_at: '15.02.1525', updated_at: '23.04.2022', status: 1 }
-            ]
+           */ ]
         }
     },
     watch: {
@@ -69,8 +70,8 @@ export default {
     <form @submit.prevent="addItem">
         <input v-model="newItem" class="form-control" placeholder="Another name in the list">
 
-        <button @click="addItem()" type="button" class="btn btn-primary">Add Item</button>
-        <button @click="refresh(item)" type="button" class="btn btn-secondary">Refresh</button>
+        <button @click="addItem()" type="button" class="btn btn-primary btn-add">Add Item</button>
+        <button @click="refresh(item)" type="button" class="btn btn-secondary btn-refresh">Refresh</button>
     </form>
 
     <ul  class="list-group">
@@ -78,8 +79,8 @@ export default {
             <input class="form-check-input me-1" type="checkbox" value="" id="{{ item.id}}">
             <label class="form-check-label stretched-link" for="{{ item.id}}">{{ item.name }}
             </label>
-            <button @click="editItem(item)"  type="button" class="btn btn-dark">CHANGE</button>
-            <button @click="removeItem(item)"  type="button" class="btn btn-dark">X</button>
+            <button @click="editItem(item)"  type="button" class="btn btn-dark btn-change">CHANGE</button>
+            <button @click="removeItem(item)"  type="button" class="btn btn-dark btn-remove">X</button>
 
         </li>
     </ul>
@@ -120,10 +121,16 @@ export default {
 }
 .btn{
     border-radius: 18px;
+    padding: 6px;
+}
+.btn-remove,.btn-change{
+    margin-right: 0.15em !important;
+    margin-top: 0.65em !important;
+}
+.btn-add,.btn-refresh{
     margin-right: 0.65em !important;
     margin-bottom: 0.65em !important;
     margin-top: 0.65em !important;
-    padding: 6px;
 }
 .list-group{
     margin-top: .25em;
