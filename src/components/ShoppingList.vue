@@ -90,8 +90,6 @@ export default {
                 <input v-model="newItem" class="form-control" placeholder="Another name in the list">
                 <div class="btn-group" role="group" aria-label="Basic outlined example">
                     <button @click="addItem()" type="button" class="btn btn-outline-primary btn-add"><i class="fa-solid fa-plus"></i>Add Item</button>
-
-                    </button>
                 </div>
             </form>
         </div>
@@ -192,7 +190,7 @@ export default {
 
 .list-group-item {
     background: none;
-    background-color: rgb(119, 88, 122) !important;
+    background-color: #33485e38 !important;
     backdrop-filter: blur(50);
 }
 
