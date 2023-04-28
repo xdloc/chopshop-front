@@ -26,7 +26,10 @@ export default {
                 axios
                     // todo ListController Add
                     .get(API_URL + 'list%2Fadd', config)
-                    .then(response => (this.fetchData()))
+                    .then(response => {
+                        this.fetchData()
+
+                    })
                     .catch(error => {
                         console.log(error)
                         this.failure = true;
@@ -39,7 +42,9 @@ export default {
                 .get(API_URL + 'list%2Fremove', config)
                 .then(response => {
                     //this.fetchData()
-                    this.items = this.items.filter((t) => t !== item)
+                    if(response){
+                        this.items = this.items.filter((t) => t !== item)
+                    }
                 })
                 .catch(error => {
                     console.log(error)
