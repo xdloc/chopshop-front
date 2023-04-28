@@ -156,9 +156,10 @@ section {
 .btn-dark{
     margin-top: 0.5em;
 }
+.btn-add{
 
+}
 .btn-outline-primary {
-    padding: 5px 25px;
     border-color: #00bd7e !important;
     --bs-btn-color: #00bd7e !important;
     --bs-btn-border-color: --teal;
