@@ -6,8 +6,6 @@ let id = 1000;
 let config = {
     headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers' : 'X-Requested-With, Content-Type, X-Auth-Token, Origin, Authorization'
     }
 }
 
@@ -125,12 +123,15 @@ export default {
 }
 .btn-remove,.btn-change{
     margin-right: 0.15em !important;
-    margin-top: 0.65em !important;
+    margin-top: 0.15em !important;
 }
 .btn-add,.btn-refresh{
     margin-right: 0.65em !important;
     margin-bottom: 0.65em !important;
     margin-top: 0.65em !important;
+}
+.btn-add{
+    background-color: #00bd7e !important;
 }
 .list-group{
     margin-top: .25em;
