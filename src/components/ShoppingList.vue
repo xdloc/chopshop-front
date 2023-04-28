@@ -111,10 +111,10 @@ export default {
             <li class="list-group-item" v-for="item in items" :key="item.id">
                 <div class="container text-center">
                     <div class="row">
-                        <div class="col col-lg-2">
+                        <div class="col col-lg-1 col-md-2">
                             <input class="form-check-input me-1" type="checkbox" v-model="item.checked"  @click="markItem(item)" :id="'shop-list-row-'+item.id+''">
                         </div>
-                        <div class="col col-lg-auto col-md-auto col-sm-auto col-auto ">
+                        <div class="col col-lg-8 col-md-auto ">
                             <div class="label">
                                 <label class="form-check-label stretched-link" :for="'shop-list-row-'+item.id+''">{{ item.name }}
                                 </label>
@@ -122,7 +122,7 @@ export default {
                         </div>
                         <div class="col col-lg-2 align-content-lg-end">
                                 <!--<button @click="editItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>CHANGE</button>-->
-                                <button @click="removeItem(item)" type="button" class="btn btn-dark btn-change" :id="'shop-list-remove-item-'+item.id+''"><i
+                                <button @click="removeItem(item)" type="button" class="btn btn-dark btn-change float-end" :id="'shop-list-remove-item-'+item.id+''"><i
                                         class="fa-solid fa-pen-to-square"></i>REMOVE
                                 </button>
 
