@@ -43,8 +43,9 @@ export default {
                 .get(API_URL + 'list%2Fremove', config)
                 .then(response => {
                     //this.fetchData()
+                    console.log(response);
+
                     if (response === true) {
-                        console.log(response);
                         this.items = this.items.filter((t) => t !== item)
                     } else {
                         console.log('Item not deleted');
@@ -58,7 +59,7 @@ export default {
         markItem(item) {
             axios
                 // todo ListController Mark
-                .get(API_URL + 'list%2Fedit', config)
+                .get(API_URL + 'list%2Fmark', config)
                 .then(response => {
 
                 })
@@ -233,7 +234,7 @@ export default {
 
 label {
     color: whitesmoke;
-    padding-top: 13px;
+    padding-top: 13px !important;
 }
 
 .form-check-input[type=checkbox] {
