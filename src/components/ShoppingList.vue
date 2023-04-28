@@ -63,21 +63,6 @@ export default {
         refresh() {
             this.fetchData()
         },
-        updated(){
-            this.fetchData()
-        },
-        created() {
-            this.fetchData()
-        },
-        mounted() {
-            this.fetchData()
-        },
-        beforeMount(){
-            this.fetchData()
-        },
-        ready(){
-            this.fetchData()
-        },
         async fetchData() {
             axios
                 .get(API_URL + 'list&method=list', config)
@@ -91,7 +76,10 @@ export default {
                     this.failure = true;
                 })
         }
-    }
+    },
+    ready: function() {
+        this.fetchData()
+    },
 }
 </script>
 
