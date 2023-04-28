@@ -13,7 +13,7 @@ let id = 1000;
 let config = {
     headers: {
         'Content-Type': 'application/json',
-        'Origin': 'https://siberia.vps.webdock.cloud/',
+        //'Origin': 'https://siberia.vps.webdock.cloud/',
         //'Access-Control-Allow-Origin': BACKEND,//'https://siberia.vps.webdock.cloud/',
         //'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Credentials,Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Vary',
         //'Access-Control-Allow-Methods': 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
