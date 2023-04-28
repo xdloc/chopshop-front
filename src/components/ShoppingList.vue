@@ -42,7 +42,8 @@ export default {
                 .get(API_URL + 'list%2Fremove', config)
                 .then(response => {
                     //this.fetchData()
-                    if(response){
+                    if(response.data){
+                        console.log(response);
                         this.items = this.items.filter((t) => t !== item)
                     }
                 })
