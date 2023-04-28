@@ -3,7 +3,6 @@ import axios from "axios";
 
 let BACKEND = 'https://siberia.vps.webdock.cloud/';
 let API_URL = BACKEND + `?controller=`
-let id = 1000;
 let config = {
     headers: {
         'Content-Type': 'application/json',
@@ -42,6 +41,7 @@ export default {
                 // todo ListController Remove
                 .get(API_URL + 'list&method=remove&id=' + item.id, config)
                 .then(response => {
+                    this.
                     this.fetchData()
                 })
                 .catch(error => {
@@ -134,7 +134,7 @@ export default {
                         </div>
                         <div class="col col-lg-2 align-content-lg-end">
                                 <!--<button @click="editItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>CHANGE</button>-->
-                                <button @click="removeItem(item)" type="button" class="btn btn-dark btn-change"><i
+                                <button @click="removeItem(item)" type="button" class="btn btn-dark btn-change" :id="'shop-list-remove-item-'+item.id+''"><i
                                         class="fa-solid fa-pen-to-square"></i>REMOVE
                                 </button>
 
