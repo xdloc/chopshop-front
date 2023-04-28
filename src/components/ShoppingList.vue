@@ -87,11 +87,11 @@ export default {
             <form @submit.prevent="addItem" class="row row-cols-lg-auto g-3 align-items-center">
 
             <div class="col-12">
-                <input v-model="newItem" class="form-control" placeholder="Another name in the list">
+                <input v-model="newItem" class="form-control form-control-lg" placeholder="Another name in the list">
             </div>
 
             <div class="col-12">
-                <button @click="addItem()" type="button" class="btn btn-outline-primary btn-add"><i class="fa-solid fa-plus"></i>Add Item</button>
+                <button @click="addItem()" type="button" class="btn btn-lg btn-outline-primary btn-add"><i class="fa-solid fa-plus"></i>Add Item</button>
             </div>
             </form>
         </div>
@@ -152,6 +152,9 @@ section {
 .btn {
     border-radius: 18px;
     padding: 6px;
+}
+.btn-dark{
+    margin-top: 0.5em;
 }
 
 .btn-outline-primary {
