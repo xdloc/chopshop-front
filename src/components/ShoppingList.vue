@@ -87,7 +87,7 @@ export default {
             <form @submit.prevent="addItem" class="row row-cols-lg-auto g-3 align-items-center">
 
             <div class="col-12">
-                <input v-model="newItem" class="form-control form-control-lg" placeholder="Another name in the list">
+                <input v-model="newItem" class="form-control form-control-lg" placeholder="Apples, Milk, Pineapple juice e.g.">
             </div>
 
             <div class="col-12">
