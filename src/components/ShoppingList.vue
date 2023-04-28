@@ -91,9 +91,10 @@ export default {
 <template>
     <form @submit.prevent="addItem">
         <input v-model="newItem" class="form-control" placeholder="Another name in the list">
-
-        <button @click="addItem()" type="button" class="btn btn-primary btn-add">Add Item</button>
-        <button @click="refresh(item)" type="button" class="btn btn-secondary btn-refresh">Refresh</button>
+        <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <button @click="addItem()" type="button" class="btn btn-outline-primary">Add Item</button>
+            <button @click="refresh(item)" type="button" class="btn btn-outline-secondary">Refresh</button>
+        </div>
     </form>
 
     <section v-if="failure">
@@ -112,7 +113,7 @@ export default {
                 <label class="form-check-label stretched-link" for=:key>{{ item.name }}
                 </label>
                 <button @click="editItem(item)" type="button" class="btn btn-dark btn-change">CHANGE</button>
-                <button @click="removeItem(item)" type="button" class="btn btn-dark btn-remove">X</button>
+                <button @click="removeItem(item)" type="button" class="btn-close" aria-label="Close"></button>
 
             </li>
         </ul>
@@ -197,5 +198,9 @@ label {
 
 .form-control {
     margin-bottom: 0.5em;
+}
+.form-check-input{
+    width: 2em;
+    height: 2em;
 }
 </style>
