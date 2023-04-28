@@ -89,7 +89,7 @@ export default {
 <template>
     <section>
         <div>
-            <form @submit.prevent="addItem" class="">
+            <form @submit.prevent="addItem" class="form">
                 <input v-model="newItem" class="form-control" placeholder="Another name in the list">
                 <div class="btn-group" role="group" aria-label="Basic outlined example">
                     <button @click="addItem()" type="button" class="btn btn-outline-primary"><i class="fa-solid fa-plus"></i>Add Item</button>
