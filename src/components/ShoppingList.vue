@@ -2,22 +2,12 @@
 import axios from "axios";
 
 let BACKEND = 'https://siberia.vps.webdock.cloud/';
-//axios.defaults.baseURL = BACKEND;
-//axios.defaults.headers.get['Content-Type'] = 'application/json';
-//axios.defaults.headers.get['Access-Control-Allow-Origin'] = '*';
-//axios.defaults.headers.get['Access-Control-Allow-Methods'] = 'Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Credentials,Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Vary';
-//axios.defaults.headers.get['Access-Control-Allow-Headers'] = 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS';
-
-const API_URL = BACKEND + `?method=`
+let API_URL = BACKEND + `?method=`
 let id = 1000;
 let config = {
     headers: {
         'Content-Type': 'application/json',
-        //'Origin': 'https://siberia.vps.webdock.cloud/',
-        //'Access-Control-Allow-Origin': BACKEND,//'https://siberia.vps.webdock.cloud/',
-        //'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Credentials,Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Vary',
-        //'Access-Control-Allow-Methods': 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-        //'Access-Control-Allow-Credentials': 'true',
+        //'Origin': BACKEND,
     }
 }
 
@@ -53,11 +43,13 @@ export default {
                     this.failure = true;
                 })
         },
-        editItem(item) {
+        markItem(item) {
             axios
                 // todo ListController Edit
                 .get(API_URL + 'list%2Fedit', config)
-                .then(response => (this.fetchData()))
+                .then(response => {
+
+                })
                 .catch(error => {
                     console.log(error)
                     this.failure = true;
@@ -79,6 +71,7 @@ export default {
                     console.log(this.items)
                     console.log(response)
                     this.items = response.data
+                    return response.data;
                 })
                 .catch(error => {
                     console.log(error)
@@ -113,17 +106,24 @@ export default {
         </div>
         <ul class="list-group" v-else>
             <li class="list-group-item" v-for="item in items" :key="item.id">
-                <input class="form-check-input me-1" type="checkbox" value="" id="{{ item.id }}">
-                <label class="form-check-label stretched-link" for="{{ item.id }}">{{ item.name }}
-                </label>
-
-                <!--<button @click="editItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>CHANGE</button>-->
-                <button @click="removeItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>REMOVE
-                </button>
-
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col col-lg-2">
+                            <input class="form-check-input me-1" type="checkbox" value="" @click="markItem(item)" id="{{ item.id }}">
+                        </div>
+                        <div class="col col-lg-auto col-md-auto">
+                            <label class="form-check-label stretched-link" for="{{ item.id }}">{{ item.name }}
+                            </label>
+                        </div>
+                        <div class="col col-lg-2">
+                            <!--<button @click="editItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>CHANGE</button>-->
+                            <button @click="removeItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>REMOVE
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </li>
         </ul>
-
     </section>
 
 </template>
