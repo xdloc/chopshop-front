@@ -127,7 +127,7 @@ export default {
                             <!--<button @click="editItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>CHANGE</button>-->
                             <button @click="removeItem(item)" type="button" class="btn btn-dark btn-change float-end"
                                     :id="'shop-list-remove-item-'+item.id+''"><i
-                                    class="fa-solid fa-pen-to-square"></i>REMOVE
+                                    class="fa-solid fa-pen-to-square"></i>X
                             </button>
 
                         </div>
