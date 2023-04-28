@@ -111,7 +111,7 @@ export default {
         </div>
         <ul class="list-group" v-else>
             <li class="list-group-item" v-for="item in items" :key="item.id">
-                <div class="container text-center">
+                <div class="container text-left">
                     <div class="row">
                         <div class="col col-lg-1 col-md-2">
                             <input class="form-check-input me-1" type="checkbox" v-model="item.checked" @click="markItem(item)"
