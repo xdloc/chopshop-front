@@ -3,17 +3,19 @@ import axios from "axios";
 
 let BACKEND = 'https://siberia.vps.webdock.cloud/';
 axios.defaults.baseURL = BACKEND;
-axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+axios.defaults.headers.post['Access-Control-Allow-Origin'] = BACKEND;
 axios.defaults.headers.post['Content-Type'] = 'application/json';
+axios.defaults.headers.post['Access-Control-Allow-Methods'] = 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS';
+axios.defaults.headers.post['Access-Control-Allow-Headers'] = 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS';
 
 const API_URL = BACKEND + `?method=`
 let id = 1000;
 let config = {
     headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',//'https://siberia.vps.webdock.cloud/',
-        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
-        'Access-Control-Allow-Methods': '*',
+        'Access-Control-Allow-Origin': BACKEND,//'https://siberia.vps.webdock.cloud/',
+        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Credentials,Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Vary',
+        'Access-Control-Allow-Methods': 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
         'Access-Control-Allow-Credentials': 'true',
         'Vary': 'Accept-Encoding'
     }
