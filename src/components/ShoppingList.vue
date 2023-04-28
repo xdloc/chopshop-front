@@ -206,6 +206,7 @@ section {
 
 .form-control {
     margin-bottom: 0.5em;
+    padding: 5px 35px;
 }
 
 .form-check-input {
