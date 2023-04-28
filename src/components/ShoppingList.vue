@@ -158,6 +158,7 @@ section {
 }
 .btn-add{
     margin-top: -0.5em;
+    min-width: 15vw;
 }
 .btn-outline-primary {
     border-color: #00bd7e !important;
@@ -175,12 +176,6 @@ section {
     --bs-btn-disabled-bg: transparent;
     --bs-btn-disabled-border-color: #00bd7e !important;
     --bs-gradient: none;
-    min-width: fit-content;
-}
-
-.btn-outline-secondary {
-    border-color: #00bd7e !important;
-    min-width: fit-content;
 }
 
 .list-group {
@@ -206,7 +201,7 @@ section {
 
 .form-control {
     margin-bottom: 0.5em;
-    min-width: 30em !important;
+    min-width: 30vw !important;
 }
 
 .form-check-input {
