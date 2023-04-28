@@ -75,7 +75,11 @@ export default {
         async fetchData() {
             axios
                 .get(API_URL + 'list%2Flist', config)
-                .then(response => (this.items = response))
+                .then(response => {
+                    console.log(this.items)
+                    console.log(response)
+                    this.items = response
+                })
                 .catch(error => {
                     console.log(error)
                     this.failure = true;
@@ -91,7 +95,8 @@ export default {
             <input v-model="newItem" class="form-control" placeholder="Another name in the list">
             <div class="btn-group" role="group" aria-label="Basic outlined example">
                 <button @click="addItem()" type="button" class="btn btn-outline-primary"><i class="fa-solid fa-plus"></i>Add Item</button>
-                <button @click="refresh(item)" type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-arrow-rotate"></i>Refresh</button>
+                <button @click="refresh(item)" type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-arrow-rotate"></i>Refresh
+                </button>
             </div>
         </form>
     </section>
@@ -112,8 +117,9 @@ export default {
                 <label class="form-check-label stretched-link" for=:key>{{ item.name }}
                 </label>
 
-                <button @click="editItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>CHANGE</button>
-                <button @click="removeItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>REMOVE</button>
+                <!--<button @click="editItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>CHANGE</button>-->
+                <button @click="removeItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>REMOVE
+                </button>
 
             </li>
         </ul>
@@ -175,23 +181,25 @@ export default {
 .btn-add {
     background-color: #00bd7e !important;
 }
-.btn-outline-primary{
+
+.btn-outline-primary {
     border-color: #00bd7e !important;
     --bs-btn-color: #00bd7e !important;
     --bs-btn-border-color: --teal;
     --bs-btn-hover-color: #fff;
     --bs-btn-hover-bg: #00bd7e !important;
     --bs-btn-hover-border-color: #00bd7e !important;
-    --bs-btn-focus-shadow-rgb: 13,110,253;
+    --bs-btn-focus-shadow-rgb: 13, 110, 253;
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: #00bd7e !important;
     --bs-btn-active-border-color: #00bd7e !important;
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     --bs-btn-disabled-color: #00bd7e !important;
     --bs-btn-disabled-bg: transparent;
-    --bs-btn-disabled-border-color:  #00bd7e !important;
+    --bs-btn-disabled-border-color: #00bd7e !important;
     --bs-gradient: none;
 }
+
 .list-group {
     margin-top: .25em;
 }
@@ -216,7 +224,8 @@ label {
 .form-control {
     margin-bottom: 0.5em;
 }
-.form-check-input{
+
+.form-check-input {
     width: 2em !important;
     height: 2em !important;
 }
