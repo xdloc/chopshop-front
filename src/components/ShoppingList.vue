@@ -140,7 +140,7 @@ export default {
 }
 
 section {
-    margin-top: 0.25em;
+    margin-top: 1em;
 }
 
 .btn {
@@ -174,7 +174,7 @@ section {
 }
 
 .list-group {
-    margin-top: .25em;
+    margin-top: 1em;
 }
 
 .list-group-item {
