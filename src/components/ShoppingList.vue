@@ -153,16 +153,6 @@ section{
     margin-top: 9px !important;
 }
 
-.btn-add, .btn-refresh {
-    margin-right: 0.65em !important;
-    margin-bottom: 0.65em !important;
-    margin-top: 0.65em !important;
-}
-
-.btn-add {
-    background-color: #00bd7e !important;
-}
-
 .btn-outline-primary {
     border-color: #00bd7e !important;
     --bs-btn-color: #00bd7e !important;
