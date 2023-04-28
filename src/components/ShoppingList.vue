@@ -148,12 +148,8 @@ section{
     padding: 6px;
 }
 
-.btn-remove, .btn-change {
-    margin-right: 0.25em !important;
-    margin-top: 9px !important;
-}
-
 .btn-outline-primary {
+    padding: 5px 25px;
     border-color: #00bd7e !important;
     --bs-btn-color: #00bd7e !important;
     --bs-btn-border-color: --teal;
