@@ -80,6 +80,9 @@ export default {
     ready: function() {
         this.fetchData()
     },
+    created: function() {
+        this.fetchData()
+    },
 }
 </script>
 
