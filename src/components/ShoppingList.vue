@@ -42,14 +42,7 @@ export default {
                 // todo ListController Remove
                 .get(API_URL + 'list&method=remove&id=' + item.id, config)
                 .then(response => {
-                    //this.fetchData()
-                    console.log(response);
-
-                    if (response === true) {
-                        this.items = this.items.filter((t) => t !== item)
-                    } else {
-                        console.log('Item not deleted');
-                    }
+                    this.fetchData()
                 })
                 .catch(error => {
                     console.log(error)
@@ -59,9 +52,9 @@ export default {
         markItem(item) {
             axios
                 // todo ListController Mark
-                .get(API_URL + 'list&method=mark&id=' + item.id, config)
+                .get(API_URL + 'list&method=mark&id=' + item.id + '&value='.item.status, config)
                 .then(response => {
-                    this.fetchData()
+                    //this.fetchData()
                 })
                 .catch(error => {
                     console.log(error)
