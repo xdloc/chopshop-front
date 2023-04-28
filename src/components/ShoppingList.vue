@@ -128,8 +128,10 @@ export default {
                             <input class="form-check-input me-1" type="checkbox" value="" @click="markItem(item)" :id="'shop-list-row-'+item.id+''">
                         </div>
                         <div class="col col-lg-auto col-md-auto col-sm-auto col-auto ">
-                            <label class="form-check-label stretched-link" :for="'shop-list-row-'+item.id+''">{{ item.name }}
-                            </label>
+                            <div class="label">
+                                <label class="form-check-label stretched-link" :for="'shop-list-row-'+item.id+''">{{ item.name }}
+                                </label>
+                            </div>
                         </div>
                         <div class="col col-lg-2 align-content-lg-end">
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -234,9 +236,10 @@ export default {
     backdrop-filter: blur(50);
 }
 
-label {
+.label {
     color: whitesmoke;
     padding-top: 13px !important;
+    min-width: 45%;
 }
 
 .form-check-input[type=checkbox] {
