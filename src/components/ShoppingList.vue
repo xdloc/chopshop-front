@@ -53,6 +53,11 @@ export default {
                 // todo ListController Mark
                 .get(API_URL + 'list&method=mark&id=' + item.id + '&value=' + item.status, config)
                 .then(response => {
+                    if(item.status)
+                        item.checked = 'checked'
+                    else{
+                        item.checked = ''
+                    }
                     //this.fetchData()
                 })
                 .catch(error => {
