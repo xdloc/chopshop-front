@@ -113,11 +113,11 @@ export default {
             <li class="list-group-item" v-for="item in items" :key="item.id">
                 <div class="container text-left">
                     <div class="row">
-                        <div class="col col-lg-1 col-md-2">
+                        <div class="col col-lg-1">
                             <input class="form-check-input me-1" type="checkbox" v-model="item.checked" @click="markItem(item)"
                                    :id="'shop-list-row-'+item.id+''">
                         </div>
-                        <div class="col col-lg-9 col-md-8 col-sm-auto ">
+                        <div class="col col-lg-9 col-sm-auto ">
                             <div class="label">
                                 <label class="form-check-label stretched-link" :for="'shop-list-row-'+item.id+''">{{ item.name }}
                                 </label>
