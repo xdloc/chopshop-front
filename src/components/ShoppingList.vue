@@ -91,19 +91,24 @@ export default {
 
 <template>
     <section>
-        <form @submit.prevent="addItem">
-            <input v-model="newItem" class="form-control" placeholder="Another name in the list">
-            <div class="btn-group" role="group" aria-label="Basic outlined example">
-                <button @click="addItem()" type="button" class="btn btn-outline-primary"><i class="fa-solid fa-plus"></i>Add Item</button>
-                <button @click="refresh(item)" type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-arrow-rotate"></i>Refresh
-                </button>
-            </div>
-        </form>
+        <div>
+            <form @submit.prevent="addItem" class="">
+                <input v-model="newItem" class="form-control" placeholder="Another name in the list">
+                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button @click="addItem()" type="button" class="btn btn-outline-primary"><i class="fa-solid fa-plus"></i>Add Item</button>
+                        <button @click="refresh(item)" type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-arrow-rotate"></i>Refresh</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </section>
 
     <section v-if="failure">
-        <div class="alert alert-danger" role="alert">
-            <i class="fa-solid fa-bomb"></i> FAILED
+        <div>
+            <b-alert show dismissible>
+                <i class="fa-solid fa-bomb"></i> FAILED <b>&rArr;</b>
+            </b-alert>
         </div>
     </section>
 
@@ -205,6 +210,10 @@ export default {
     --bs-btn-disabled-bg: transparent;
     --bs-btn-disabled-border-color: #00bd7e !important;
     --bs-gradient: none;
+}
+
+.btn-outline-secondary{
+    border-color: #00bd7e !important;
 }
 
 .list-group {
