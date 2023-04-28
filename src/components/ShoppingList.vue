@@ -59,7 +59,7 @@ export default {
         markItem(item) {
             axios
                 // todo ListController Mark
-                .get(API_URL + 'list&method=remove&id=' + item.id, config)
+                .get(API_URL + 'list&method=mark&id=' + item.id, config)
                 .then(response => {
                     this.fetchData()
                 })
@@ -69,6 +69,9 @@ export default {
                 })
         },
         refresh() {
+            this.fetchData()
+        },
+        updated(){
             this.fetchData()
         },
         created() {
