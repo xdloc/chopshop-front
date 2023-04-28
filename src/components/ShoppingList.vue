@@ -41,7 +41,6 @@ export default {
                 // todo ListController Remove
                 .get(API_URL + 'list&method=remove&id=' + item.id, config)
                 .then(response => {
-                    this.
                     this.fetchData()
                 })
                 .catch(error => {
