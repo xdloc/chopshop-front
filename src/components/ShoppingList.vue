@@ -117,7 +117,7 @@ export default {
                             <input class="form-check-input me-1" type="checkbox" v-model="item.checked" @click="markItem(item)"
                                    :id="'shop-list-row-'+item.id+''">
                         </div>
-                        <div class="col col-lg-8 col-md-auto ">
+                        <div class="col col-lg-9 col-md-8 col-sm-auto ">
                             <div class="label">
                                 <label class="form-check-label stretched-link" :for="'shop-list-row-'+item.id+''">{{ item.name }}
                                 </label>
@@ -157,7 +157,7 @@ section {
     margin-top: 0.5em;
 }
 .btn-add{
-
+    margin-top: -0.5em;
 }
 .btn-outline-primary {
     border-color: #00bd7e !important;
