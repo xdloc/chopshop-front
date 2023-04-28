@@ -42,7 +42,7 @@ export default {
                 .get(API_URL + 'list%2Fremove', config)
                 .then(response => {
                     //this.fetchData()
-                    if(response.data){
+                    if (response.data) {
                         console.log(response);
                         this.items = this.items.filter((t) => t !== item)
                     }
@@ -95,10 +95,9 @@ export default {
             <form @submit.prevent="addItem" class="">
                 <input v-model="newItem" class="form-control" placeholder="Another name in the list">
                 <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <div class="d-grid gap-2 col-6 mx-auto">
-                        <button @click="addItem()" type="button" class="btn btn-outline-primary"><i class="fa-solid fa-plus"></i>Add Item</button>
-                        <button @click="refresh(item)" type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-arrow-rotate"></i>Refresh</button>
-                    </div>
+                    <button @click="addItem()" type="button" class="btn btn-outline-primary"><i class="fa-solid fa-plus"></i>Add Item</button>
+                    <button @click="refresh(item)" type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-arrow-rotate"></i>Refresh
+                    </button>
                 </div>
             </form>
         </div>
@@ -210,10 +209,12 @@ export default {
     --bs-btn-disabled-bg: transparent;
     --bs-btn-disabled-border-color: #00bd7e !important;
     --bs-gradient: none;
+    min-width: fit-content;
 }
 
-.btn-outline-secondary{
+.btn-outline-secondary {
     border-color: #00bd7e !important;
+    min-width: fit-content;
 }
 
 .list-group {
