@@ -2,7 +2,7 @@
 import axios from "axios";
 
 let BACKEND = 'https://siberia.vps.webdock.cloud/';
-let API_URL = BACKEND + `?method=`
+let API_URL = BACKEND + `?controller=`
 let id = 1000;
 let config = {
     headers: {
@@ -24,7 +24,7 @@ export default {
                 //this.items.push({id: id++, name: this.newItem, created_at: '', updated_at: '', status: 0})
                 axios
                     // todo ListController Add
-                    .get(API_URL + 'list%2Fadd?name=' + this.newItem, config)
+                    .get(API_URL + 'list&method=add&name=' + this.newItem, config)
                     .then(response => {
                         if (response) {
                             this.newItem = ''
@@ -40,7 +40,7 @@ export default {
         removeItem(item) {
             axios
                 // todo ListController Remove
-                .get(API_URL + 'list%2Fremove?id='+item.id, config)
+                .get(API_URL + 'list&method=remove&id=' + item.id, config)
                 .then(response => {
                     //this.fetchData()
                     console.log(response);
@@ -59,9 +59,9 @@ export default {
         markItem(item) {
             axios
                 // todo ListController Mark
-                .get(API_URL + 'list%2Fmark', config)
+                .get(API_URL + 'list&method=remove&id=' + item.id, config)
                 .then(response => {
-
+                    this.fetchData()
                 })
                 .catch(error => {
                     console.log(error)
@@ -79,7 +79,7 @@ export default {
         },
         async fetchData() {
             axios
-                .get(API_URL + 'list%2Flist', config)
+                .get(API_URL + 'list&method=list', config)
                 .then(response => {
                     console.log(response);
                     this.items = response.data
@@ -125,7 +125,7 @@ export default {
                 <div class="container text-center">
                     <div class="row">
                         <div class="col col-lg-2">
-                            <input class="form-check-input me-1" type="checkbox" value="" @click="markItem(item)" :id="'shop-list-row-'+item.id+''">
+                            <input class="form-check-input me-1" type="checkbox" v-model="item.status"  @click="markItem(item)" :id="'shop-list-row-'+item.id+''">
                         </div>
                         <div class="col col-lg-auto col-md-auto col-sm-auto col-auto ">
                             <div class="label">
@@ -136,7 +136,9 @@ export default {
                         <div class="col col-lg-2 align-content-lg-end">
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                 <!--<button @click="editItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>CHANGE</button>-->
-                                <button @click="removeItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>REMOVE</button>
+                                <button @click="removeItem(item)" type="button" class="btn btn-dark btn-change"><i
+                                        class="fa-solid fa-pen-to-square"></i>REMOVE
+                                </button>
                             </div>
 
                         </div>
