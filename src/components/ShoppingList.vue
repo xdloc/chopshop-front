@@ -60,9 +60,6 @@ export default {
                     this.failure = true;
                 })
         },
-        refresh() {
-            this.fetchData()
-        },
         async fetchData() {
             axios
                 .get(API_URL + 'list&method=list', config)
@@ -92,8 +89,8 @@ export default {
             <form @submit.prevent="addItem" class="form">
                 <input v-model="newItem" class="form-control" placeholder="Another name in the list">
                 <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <button @click="addItem()" type="button" class="btn btn-outline-primary"><i class="fa-solid fa-plus"></i>Add Item</button>
-                    <button @click="refresh(item)" type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-arrow-rotate"></i>Refresh
+                    <button @click="addItem()" type="button" class="btn btn-outline-primary btn-add"><i class="fa-solid fa-plus"></i>Add Item</button>
+
                     </button>
                 </div>
             </form>
