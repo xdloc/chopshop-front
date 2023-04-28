@@ -14,9 +14,7 @@ export default {
     data: () => ({
         items: []
     }),
-    watch: {
-
-    },
+    watch: {},
     methods: {
         addItem() {
             if (this.newItem.length > 0) {
@@ -74,10 +72,10 @@ export default {
                 })
         }
     },
-    ready: function() {
+    ready: function () {
         this.fetchData()
     },
-    created: function() {
+    created: function () {
         this.fetchData()
     },
 }
@@ -88,14 +86,12 @@ export default {
         <div>
             <form @submit.prevent="addItem" class="form">
                 <input v-model="newItem" class="form-control" placeholder="Another name in the list">
-                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <button @click="addItem()" type="button" class="btn btn-outline-primary btn-add"><i class="fa-solid fa-plus"></i>Add Item</button>
-                </div>
+                <button @click="addItem()" type="button" class="btn btn-outline-primary btn-add"><i class="fa-solid fa-plus"></i>Add Item</button>
             </form>
         </div>
     </section>
 
-    <section v-if="failure" >
+    <section v-if="failure">
         <div>
             <b-alert show dismissible transition="expand">
                 <i class="fa-solid fa-bomb"></i> FAILED <b>&rArr;</b>
@@ -112,7 +108,8 @@ export default {
                 <div class="container text-center">
                     <div class="row">
                         <div class="col col-lg-1 col-md-2">
-                            <input class="form-check-input me-1" type="checkbox" v-model="item.checked"  @click="markItem(item)" :id="'shop-list-row-'+item.id+''">
+                            <input class="form-check-input me-1" type="checkbox" v-model="item.checked" @click="markItem(item)"
+                                   :id="'shop-list-row-'+item.id+''">
                         </div>
                         <div class="col col-lg-8 col-md-auto ">
                             <div class="label">
@@ -121,10 +118,11 @@ export default {
                             </div>
                         </div>
                         <div class="col col-lg-2 align-content-lg-end">
-                                <!--<button @click="editItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>CHANGE</button>-->
-                                <button @click="removeItem(item)" type="button" class="btn btn-dark btn-change float-end" :id="'shop-list-remove-item-'+item.id+''"><i
-                                        class="fa-solid fa-pen-to-square"></i>REMOVE
-                                </button>
+                            <!--<button @click="editItem(item)" type="button" class="btn btn-dark btn-change"><i class="fa-solid fa-pen-to-square"></i>CHANGE</button>-->
+                            <button @click="removeItem(item)" type="button" class="btn btn-dark btn-change float-end"
+                                    :id="'shop-list-remove-item-'+item.id+''"><i
+                                    class="fa-solid fa-pen-to-square"></i>REMOVE
+                            </button>
 
                         </div>
                     </div>
@@ -140,9 +138,11 @@ export default {
     position: relative;
     padding: 0;
 }
-section{
+
+section {
     margin-top: 0.25em;
 }
+
 .btn {
     border-radius: 18px;
     padding: 6px;
@@ -186,7 +186,6 @@ section{
 .label {
     color: whitesmoke;
     padding-top: 13px !important;
-    min-width: 45%;
 }
 
 .form-check-input[type=checkbox] {
