@@ -3,6 +3,13 @@ import axios from "axios";
 
 const API_URL = `https://siberia.vps.webdock.cloud/?method=`
 let id = 1000;
+let config = {
+    headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+    }
+}
+
 export default {
     data () {
         return {
@@ -22,20 +29,20 @@ export default {
                 this.newItem = ''
                 axios
                     // todo ListController Add
-                    .get(API_URL+'list%2Fadd')
+                    .get(API_URL+'list%2Fadd',config)
                     .then(response => (this.fetchData()))
             }
         },
         removeItem(item) {
             axios
                 // todo ListController Remove
-                .get(API_URL+'list%2Fremove')
+                .get(API_URL+'list%2Fremove',config)
                 .then(response => (this.fetchData()))
         },
         editItem(item){
             axios
                 // todo ListController Edit
-                .get(API_URL+'list%2Fedit')
+                .get(API_URL+'list%2Fedit',config)
                 .then(response => (this.fetchData()))
         },
         refresh(){
@@ -46,12 +53,12 @@ export default {
         },
         mounted () {
             axios
-                .get(API_URL+'list%2Flist')
+                .get(API_URL+'list%2Flist',config)
                 .then(response => (this.items = response))
         },
         async fetchData() {
             axios
-                .get(API_URL + 'list%2Flist')
+                .get(API_URL + 'list%2Flist',config)
                 .then(response => (this.items = response))
         }
     }
@@ -61,6 +68,7 @@ export default {
 <template>
     <form @submit.prevent="addItem">
         <input v-model="newItem" class="form-control" placeholder="Another name in the list">
+
         <button @click="addItem()" type="button" class="btn btn-primary">Add Item</button>
         <button @click="refresh(item)" type="button" class="btn btn-secondary">Refresh</button>
     </form>
@@ -112,7 +120,10 @@ export default {
 }
 .btn{
     border-radius: 18px;
-    margin-right: 0.25em !important;
+    margin-right: 0.65em !important;
+    margin-bottom: 0.65em !important;
+    margin-top: 0.65em !important;
+    padding: 6px;
 }
 .list-group{
     margin-top: .25em;
@@ -129,5 +140,8 @@ label{
 .form-check-input[type=checkbox] {
     border-radius: .25em;
     margin-top: 11px;
+}
+.form-control{
+    margin-bottom: 0.5em;
 }
 </style>
