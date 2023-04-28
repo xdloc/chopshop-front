@@ -89,13 +89,15 @@ export default {
 </script>
 
 <template>
-    <form @submit.prevent="addItem">
-        <input v-model="newItem" class="form-control" placeholder="Another name in the list">
-        <div class="btn-group" role="group" aria-label="Basic outlined example">
-            <button @click="addItem()" type="button" class="btn btn-outline-primary">Add Item</button>
-            <button @click="refresh(item)" type="button" class="btn btn-outline-secondary">Refresh</button>
-        </div>
-    </form>
+    <section>
+        <form @submit.prevent="addItem">
+            <input v-model="newItem" class="form-control" placeholder="Another name in the list">
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button @click="addItem()" type="button" class="btn btn-outline-primary">Add Item</button>
+                <button @click="refresh(item)" type="button" class="btn btn-outline-secondary">Refresh</button>
+            </div>
+        </form>
+    </section>
 
     <section v-if="failure">
         <div class="alert alert-danger" role="alert">
