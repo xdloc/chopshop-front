@@ -6,7 +6,7 @@ let id = 1000;
 let config = {
     headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': 'https://siberia.vps.webdock.cloud',
         'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
         'Access-Control-Allow-Credentials': 'true',
     }
